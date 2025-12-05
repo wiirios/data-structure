@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "binarytree.h"
 
 /* test only */
@@ -19,6 +20,10 @@ int main() {
 
     print_tree(tree->root);
 
-    free(tree);
+    free_nodes(tree->root);
+
+    // use free_tree(tree) at the end
+    free_tree(tree);
+
     return 0;
 }

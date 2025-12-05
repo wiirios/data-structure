@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
 #include "binarytree.h"
 
 tree_t *init() {
@@ -44,8 +46,18 @@ void insert(tree_t *tree, int value) {
             }
         }
     }
+}
+
+void free_nodes(node_t *node) {
+    if (node != NULL) {
+        free_nodes(node->left);
+        free_nodes(node->right);
+        free(node);
+    }
 
 }
+
+void free_tree(tree_t* tree) {free(tree);}
 
 void print_tree(node_t *node) {
     if (node != NULL) {
@@ -71,5 +83,6 @@ int search(tree_t *tree, int value) {
 
 int isEmpty(tree_t *tree) {
     if (tree->root == NULL) return 1;
-    else return 0;
+    
+    return 0;
 }

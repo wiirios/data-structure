@@ -12,7 +12,11 @@ typedef struct tree {
 } tree_t;
 
 tree_t *init();
+
 void insert(tree_t *tree, int value);
+void free_nodes(node_t* node);
+void free_tree(tree_t* tree);
+
 void print_tree(node_t *node);
 int search(tree_t *tree, int value);
 int isEmpty(tree_t *tree);
