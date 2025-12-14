@@ -3,6 +3,8 @@
         "linkedlist.h": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "binarytree.h": "c"
-    }
+        "binarytree.h": "c",
+        "hashtable.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
