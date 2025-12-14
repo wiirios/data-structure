@@ -29,8 +29,8 @@ Each folder includes:
 - [Queue](src/queue)
 - [Matrix](src/matrix)
 - [Linked List](src/linkedlist)
-- [Hash Table](src/hashtable)
 - [Binary Tree](src/binarytree/)
+- [Array](src/array/)
 
 You can also check the [API documentation](api) for detailed usage.
 
