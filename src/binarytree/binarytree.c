@@ -6,7 +6,7 @@
 
 tree_t *init() {
     tree_t *tree;
-    tree = malloc(sizeof(tree_t));
+    tree = (tree_t*) malloc(sizeof(tree_t));
 
     if (tree == NULL) exit(EXIT_FAILURE);
     
@@ -16,7 +16,7 @@ tree_t *init() {
 
 void insert(tree_t *tree, int value) {
     node_t *node;
-    node = malloc(sizeof(node_t));
+    node = (node_t*) malloc(sizeof(node_t));
 
     if (node == NULL) exit(EXIT_FAILURE);
     
