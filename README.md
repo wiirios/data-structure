@@ -30,7 +30,7 @@ Each folder includes:
 - [Matrix](src/matrix)
 - [Linked List](src/linkedlist)
 - [Binary Tree](src/binarytree/)
-- [Array](src/array/)
+- [Array](src/Array/)
 
 You can also check the [API documentation](api) for detailed usage.
 
