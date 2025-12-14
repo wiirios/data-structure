@@ -9,7 +9,7 @@ typedef struct stack{
 
 stack_t *init() {
     stack_t *stack;
-    stack = malloc(sizeof(stack_t));
+    stack = (stack_t*) malloc(sizeof(stack_t));
 
     if (stack == NULL) exit(EXIT_FAILURE);
 

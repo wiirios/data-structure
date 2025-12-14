@@ -10,7 +10,7 @@ typedef struct queue
 
 queue_t *init() {
     queue_t *queue;
-    queue = malloc(sizeof(queue_t));
+    queue = (queue_t*) malloc(sizeof(queue_t));
 
     queue->length = 0;
 

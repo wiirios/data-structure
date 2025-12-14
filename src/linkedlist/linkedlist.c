@@ -14,7 +14,7 @@ typedef struct list
 
 list_t *init() {
     list_t *list;
-    list = malloc(sizeof(list_t));
+    list = (list_t*) malloc(sizeof(list_t));
 
     if (list == NULL) exit(EXIT_FAILURE);
 
