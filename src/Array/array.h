@@ -9,7 +9,6 @@ typedef struct array
 {
     size_t size;
     size_t capacity;
-    char type[8];
     void **data;
 } array_t;
 
