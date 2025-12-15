@@ -41,8 +41,8 @@ int main(int argc, char *argv[]) {
     
     printf("%s\n", get_last(array_char));
 
-    free(array);
-    free(array_char);
+    free_array(array);
+    free_array(array_char)
 
     return 0;
 }

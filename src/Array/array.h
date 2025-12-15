@@ -25,6 +25,7 @@ void *get_last(array_t *array);
 
 void clear(array_t *array);
 void delete(array_t *array, unsigned int index);
+void free_array(array_t *array);
 
 size_t size(array_t *array);
 

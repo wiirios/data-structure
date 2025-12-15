@@ -93,3 +93,8 @@ void clear(array_t *array) {
 void delete(array_t *array, unsigned int index) {
     if (array == NULL || array->size == 0)  fatal("array is null");
 }
+
+void free_array(array_t *array) {
+    free(array->data);
+    free(array);
+}
