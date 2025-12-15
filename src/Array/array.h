@@ -5,17 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define check(X) _Generic((X), \
-    char*: "Char", \
-    int: "Int", \
-    unsigned int: "Unsigned int", \
-    default: "Error")
-
-typedef enum {
-    INT_TYP,
-    CHAR_TYP
-} type_t;
-
 typedef struct array
 {
     size_t size;
