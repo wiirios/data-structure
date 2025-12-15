@@ -5,11 +5,8 @@
 /* test only */
 
 int main(int argc, char *argv[]) {
-
-    //#define DEBUG argv[1]
-
     array_t *array;
-    array = create_array(5, "INT_TYP");
+    array = create_array(5);
 
     int first_value = 10;
     add(array, &first_value);
@@ -26,6 +23,13 @@ int main(int argc, char *argv[]) {
     int fifth_value = 200;
     add(array, &fifth_value);
 
+    printf("%u", size(array));
+    clear(array);
+    printf("%u", size(array));
+    add(array, &second_value);
+    printf("%d", get_first(array));
+    printf("%u", size(array));
+
     array_t *array_char;
     array_char = create_array(5, "CHR_TYP");
 
@@ -35,7 +39,7 @@ int main(int argc, char *argv[]) {
     char *second_string = "world";
     add(array_char, &second_string);
     
-    printf("%s\n", *(char**)get_last(array_char));
+    printf("%s\n", get_last(array_char));
 
     free(array);
     free(array_char);

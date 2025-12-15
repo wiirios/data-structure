@@ -5,9 +5,7 @@ int fatal(char *msg) {
     exit(EXIT_FAILURE);
 }
 
-array_t *create_array(size_t capacity, const char *type) {
-    if (strcmp(type, "INT_TYP") != 0 && strcmp(type, "CHR_TYP") != 0) fatal("Invalid type");
-    
+array_t *create_array(size_t capacity) {
     if (capacity == 0) fatal("capacity cannot be == 0");
 
     array_t *array;
@@ -20,8 +18,7 @@ array_t *create_array(size_t capacity, const char *type) {
 
     array->size = 0;
     array->capacity = capacity;
-    memcpy(array->type, type, strlen(type) + 1);
-    array->data = malloc(capacity * (strcmp(type, "INT_TYP") == 0 ? sizeof(int*) : sizeof(char*)));
+    array->data = malloc(capacity * sizeof(void*));
 
     return array;
 }
@@ -31,13 +28,7 @@ int add(array_t *array, void *element) {
 
     if (array == NULL) fatal("array is null");
 
-    if (strcmp(array->type, "INT_TYP") == 0 && strcmp(check(element), "Int") == 0) {
-        ((int**) array->data)[array->size] = (int*) element;
-    }
-    else {
-        ((char**) array->data)[array->size] = (char*) element;
-    }
-
+    array->data[array->size] = (void*) element;
     array->size++;
     
     return 0;
@@ -49,13 +40,7 @@ void *get_at(array_t *array, unsigned int index) {
     if (array == NULL || array->size == 0) fatal("array is NULL");
 
     void *ptr;
-
-    if (strcmp(array->type, "INT_TYP") == 0) {
-        ptr = *&((int**)array->data)[index];
-    }
-    else {
-        ptr = *&((char**)array->data)[index];
-    }
+    ptr = array->data[index];
 
     return ptr;
 }
@@ -64,13 +49,7 @@ void *get_first(array_t *array) {
     if (array == NULL || array->size == 0) fatal("array is NULL");
 
     void *ptr;
-
-    if (strcmp(array->type, "INT_TYP") == 0) {
-        ptr = *&((int**)array->data)[0];
-    }
-    else {
-        ptr = *&((char**)array->data)[0];
-    }
+    ptr = array->data[0];
 
     return ptr;
 }
@@ -78,14 +57,8 @@ void *get_first(array_t *array) {
 int contains(array_t *array, void *element) {
     if (array == NULL || array->size == 0) fatal("array is NULL");
 
-    if (strcmp(array->type, "INT_TYP") == 0) {
-        for (int i = 0; i < array->size; i++) {
-            if (*((int**) array->data)[i] == *(int*) element) return 1;
-        }
-    } else {
-        for (int i = 0; i < array->size; i++) {
-            if (*((char**) array->data)[i] == *(char*) element) return 1;
-        }    
+    for (int i = 0; i < array->size; i++) {
+        if (array->data[i] == element) return 1;
     }
 
     return 0;
@@ -95,14 +68,28 @@ void *get_last(array_t *array) {
     if (array == NULL || array->size == 0) fatal("array is NULL");
     
     void *ptr;
-
-    if (strcmp(array->type, "INT_TYP") == 0) {
-        // I have no idea if there s a better way to do this.
-        ptr = *&((int**)array->data)[array->size - 1];
-    }
-    else {
-        ptr = *&((char**)array->data)[array->size - 1];
-    }
+    ptr = array->data[array->size - 1];
 
     return ptr;
+}
+
+size_t size(array_t *array) {
+    return array->size;
+}
+
+void clear(array_t *array) {
+    if (array == NULL || array->size == 0) fatal("array is NULL ");
+    
+    int i = 0;
+
+    while (i < array->size) {
+        array->data[i] = NULL;
+        i++;
+    }
+
+    array->size = 0;
+}
+
+void delete(array_t *array, unsigned int index) {
+    if (array == NULL || array->size == 0)  fatal("array is null");
 }
