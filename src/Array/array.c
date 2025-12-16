@@ -108,3 +108,12 @@ void free_array(array_t *array) {
     free(array->data);
     free(array);
 }
+
+void set(array_t *array, unsigned int index, void *element) {
+    if (array == NULL || array->size == 0) fatal("array is null");
+
+    if (index >= array->size) fatal("out of bounds");
+
+    array->data[index] = NULL;
+    array->data[index] = element;
+}
