@@ -117,3 +117,18 @@ void set(array_t *array, unsigned int index, void *element) {
     array->data[index] = NULL;
     array->data[index] = element;
 }
+
+array_t *clone(array_t *array) {
+    if (array == NULL || array->size == 0) fatal("array is null");
+
+    array_t *new_array;
+    new_array = create_array(array->capacity);
+
+    int i = 0;
+    while (i < array->size) {
+        add(new_array, (void**)get_at(array, i));
+        i++;
+    }
+
+    return new_array;
+}

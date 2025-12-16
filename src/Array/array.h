@@ -13,6 +13,7 @@ typedef struct array
 } array_t;
 
 array_t *create_array(size_t capacity);
+array_t *clone(array_t *array);
 
 int fatal(char *msg);
 int add(array_t *array, void *element);
