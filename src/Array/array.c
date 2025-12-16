@@ -91,7 +91,17 @@ void clear(array_t *array) {
 }
 
 void delete(array_t *array, unsigned int index) {
-    if (array == NULL || array->size == 0)  fatal("array is null");
+    if (array == NULL || array->size == 0) fatal("array is null");
+
+    if (index >= array->size) fatal("out of bounds");
+
+    array->data[index] = NULL;
+
+    memmove(&array->data[index], &array->data[index + 1], (array->size - index - 1) * sizeof(void*));
+
+    array->size--;
+    array->data[array->size] = NULL;
+    
 }
 
 void free_array(array_t *array) {
