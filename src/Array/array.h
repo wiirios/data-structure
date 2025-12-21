@@ -27,6 +27,7 @@ void clear(array_t *array);
 void delete(array_t *array, unsigned int index);
 void free_array(array_t *array);
 void set(array_t *array, unsigned int index, void *element);
+void print_array(array_t *array, unsigned int type);
 
 size_t size(array_t *array);
 

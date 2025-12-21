@@ -132,3 +132,25 @@ array_t *clone(array_t *array) {
 
     return new_array;
 }
+
+void print_array(array_t *array, unsigned int type) {
+    if (array == NULL || array->size == 0) fatal("array is null");
+
+    int i = 0;
+    if (type == 1) {
+        for (;i < array->size; i++) printf("%d\n", *(int*)get_at(array, i));
+    } 
+    else if (type == 2) {
+        for (;i < array->size; i++) {
+            char *ptr = *(char**)(array->data)[i];
+
+            while (*ptr) {
+                printf("%c", *ptr);
+                ptr++;
+            }
+
+            printf("\n");
+        }
+    }
+    else fatal("invalid type (the type must be 1 == int array or 2 == char array)");
+}
