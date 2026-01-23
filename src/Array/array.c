@@ -154,3 +154,9 @@ void print_array(array_t *array, unsigned int type) {
     }
     else fatal("invalid type (the type must be 1 == int array or 2 == char array)");
 }
+
+int is_empty(array_t *array) {
+    if (array->size == 0) return 1;
+
+    return 0;
+}

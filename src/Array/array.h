@@ -18,6 +18,7 @@ array_t *clone(array_t *array);
 int fatal(char *msg);
 int add(array_t *array, void *element);
 int contains(array_t *array, void *element);
+int is_empty(array_t *array);
 
 void *get_at(array_t *array, unsigned int index);
 void *get_first(array_t *array);
