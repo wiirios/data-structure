@@ -62,4 +62,7 @@ void print_array(array_t *array, unsigned int type)
 // Returns the array size
 size_t size(array_t *array);
 
+// Checks if the array is empty
+int is_empty(array_t *array);
+
 ```
